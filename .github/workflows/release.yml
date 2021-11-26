@@ -185,7 +185,7 @@ jobs:
           asset_name: nhctl-linux-amd64-SHA256
           asset_content_type: application/octet-stream
 
-  build-syncthing-linux:
+  build-syncthing-linux-amd64:
     name: Build syncthing
     runs-on: ubuntu-latest
     steps:

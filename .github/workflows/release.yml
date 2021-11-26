@@ -242,3 +242,4 @@ jobs:
             ./syncthing-source/syncthing-windows-amd64.zip
             ./syncthing-source/syncthing-macos-arm64.zip
           name: synchthing-macos-windows-cache-${GITHUB_SHA}
+

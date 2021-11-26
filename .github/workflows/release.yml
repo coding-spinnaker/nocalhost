@@ -61,7 +61,7 @@ jobs:
       - name: Release Note
         id: release-note
         run: |
-          echo "$(./release-note.sh ${{ env.PREVERSION }} ${{ env.RELEASE_VERSION }})" > release_note.md
+          echo "$(./scripts/release/release-note.sh ${{ env.PREVERSION }} ${{ env.RELEASE_VERSION }})" > release_note.md
           cat release_note.md
 
       - name: Create nhctl Pre Release

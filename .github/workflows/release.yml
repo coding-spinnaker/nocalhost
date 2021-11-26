@@ -62,6 +62,7 @@ jobs:
         id: release-note
         run: |
           echo "$(./release-note.sh ${{ env.PREVERSION }} ${{ env.RELEASE_VERSION }})" > release_note.md
+          cat release_note.md
 
       - name: Create nhctl Pre Release
         id: create_pre_release
@@ -173,6 +174,16 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: build/nhctl-linux-amd64
           asset_name: nhctl-linux-amd64
+          asset_content_type: application/octet-stream
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: build/nhctl-linux-arm64
+          asset_name: nhctl-linux-arm64
           asset_content_type: application/octet-stream
 
       - name: Upload Release Asset
